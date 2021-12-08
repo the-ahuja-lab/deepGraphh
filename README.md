@@ -3,5 +3,5 @@
  </div>
  <br>
 <div align="center">
-<img src="https://imgur.com/2gJZMWo.gif" alt="Odorify" width="500" height="400"></div>
+<img src="Data/Images/gif 5.gif" alt="Odorify" width="500" height="400"></div>
 <br>
