@@ -1,0 +1,10 @@
+deepchem==2.6.0.dev20210613203243
+dgl==0.6.1
+dgllife==0.2.8
+Flask==1.1.2
+fpdf==1.7.2
+matplotlib==3.2.2
+pandas==1.0.5
+Pillow==8.4.0
+scikit_learn==1.0.1
+Werkzeug==1.0.1
