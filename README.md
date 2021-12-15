@@ -11,9 +11,9 @@ Artificial intelligence-based computational techniques allow the rapid explorati
 The source code of the embeddings needed to train the model is available at  https://github.com/the-ahuja-lab/deepMOA
 
 ## Prediction Engines:
-
+<div align="center">
+<img src="Data/Images/SS_1.png"></div>
 ## Additional Features:
-<br><br>
 1. deepMOA is a one-stop web service for graph-based methods for cheminformatics
 2. deepMOA is one of the only open-source web servers to date that provides multiple GUI-based options for graph-based QSAR analysis. 
 3. deepMOA is backup by significant computational resources to enable model generation on larger datasets.
