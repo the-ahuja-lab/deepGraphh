@@ -1,0 +1,118 @@
+.model-name{
+    background-color: white;
+    color: black;
+    width: 100%;
+    font-size:large;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 0px;
+    /*border-top:1px solid black; */
+    border-bottom:1px solid black;
+    /* padding: 1rem auto !important; */
+    /* line-height: 2rem !important; */
+    /* box-shadow: 0 5px 10px; */
+}
+.display-4{
+    font-weight: 450;
+}
+.dropdown-menu{
+   position:fixed !important;
+   z-index:2;
+   padding-right:0.9rem;
+}
+.drp-model{
+ color:black !important;
+ text-transform:none !important;
+}
+
+.header
+{
+    /* height:100vh; */
+    width: 100%;
+    color:black;
+    overflow: hidden;
+}
+
+
+.navbar-style{
+    color:#000;
+    background: black;
+    text-decoration:none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* line-height: 1.4rem; */
+    border-radius: 0px;
+    /* /box-shadow: 0 5px 10px ;/ */
+    border-bottom: 2px solid white;
+    font-family: "Poppins", sans-serif !important;
+    position:fixed;
+    width: 100%;
+}
+
+.nav-item a{
+  color: white;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 0.8rem;
+}
+
+.logo
+{
+    height: 48px;
+    padding: 1px 1px;
+}
+.icon-bar
+{
+    background-color: white;
+}
+li a{
+    margin: 0.5rem;
+    text-align: center;
+    font-weight:bold;
+    color:white;
+    border-radius: 8px;
+    font-size:large;
+    transition: .2s;
+    transition-property: all;
+}
+
+li a:hover{
+    background: white;
+}
+.mr-auto{
+  margin-left: auto;
+}
+
+.active{
+  background-color:#bfbfbf !important;
+}
+
+.bl a{
+    color : black !important;
+}
+.param-info{
+    text-align: justify;
+}
+.param-holder{
+    padding: 0.8rem;
+}
+.param-it{
+    font-weight: bold;
+}
+.tab-pane{
+    background-color: white !important;
+}
+.m-nm{
+    padding-left: 0.5rem !important;
+    font-weight: bold;
+    font-size: 1rem !important;
+}
+.nav-link:hover{
+    background-color: white !important;
+    color: black !important;
+}
+#tut{
+    padding-top: 4.5rem;
+}
+.sect-2{
+    /* padding-top: 8rem; */
+}

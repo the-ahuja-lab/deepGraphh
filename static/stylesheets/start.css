@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+section{
+    position: relative;
+    /* width: 100%; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header{
+    position: relative;
+    top: 0;
+    /* width: 100%; */
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content{
+  padding-top: 1.5rem;  
+}
+
+.content .info h1{
+    color:white;
+    font-size:42px;
+    margin-top: 42px;
+    /* text-align: left; */
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight:500;
+    letter-spacing:2px;
+    line-height: 60px;
+    margin-bottom: 8px;
+}
+.content .info h1 span{
+    color:white;
+    /* align-items: flex-start; */
+    /* align-content: flex-start; */
+    font-size: 50px;
+} 
+
+.content .info h4{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    word-spacing: 1px;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+    color:white;
+    font-size:18px;
+    text-transform:none;
+    font-weight:200;
+    /* text-align: left; */
+    margin-top: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.content .start-btn
+{
+    margin-top: 100px;
+    color:#fff;
+    background:darkblue;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    transition-property:all;   
+}
+.content .start-btn:hover{
+    background: black;
+}
+
+.media-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    transition: 0.3s;
+    transition-property: transform;
+}
+
+.media-icons a{
+    position:relative;
+    color:#fff;
+    font-size: 32px;
+}
+.media-icons a:not(:last-child)
+{
+    margin-right: 32px;
+}
+.media-icons a:hover{
+    transform: scale(1.5);
+}
+
+.rmod{
+  margin: 1.5rem 2rem;
+  padding: 3rem 0rem;
+}
+.holder{
+  background-color: white;
+  height: 14rem;
+  padding: 1rem;
+  margin: 1rem 0rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.holder a{
+   text-decoration: none;
+   color: black;
+   color: black;
+
+}
+
+
+.responsive{
+	height: auto;
+        display: block;
+        width: 70%;
+        height: auto;
+        margin-right: -6rem;
+        transition: .4s ease;
+}
+
+.responsive:hover{
+  height: auto;
+        display: block;
+        width: 78%;
+        height: auto;
+        margin-right: -6rem;
+}
+
+
+
+
+.responsive2{
+    width: 80%;
+    height: auto;
+}
+.model-cont{
+  position: relative;
+  width: 50%;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.6rem;
+  right: 0;
+  height: 0;
+  width: 71%;
+  overflow: hidden;
+  transition: .4s ease;
+  background-color:#aeaeae;
+  border-radius : 2rem;
+}
+
+#rshf{
+  left: 5.8rem;
+}
+
+.model-cont:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

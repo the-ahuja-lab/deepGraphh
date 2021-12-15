@@ -1,0 +1,48 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: #323232;
+}
+.heading{
+    background: #000000;
+    color: white;
+    text-decoration:none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* line-height: 1.4rem; */
+    width: 100%;
+    border-radius: 0px;
+    border-bottom: 3px solid white;
+    font-family: "Poppins", sans-serif !important;
+}
+.heading h2{
+    text-align: center;
+    padding-top:1rem;
+    padding-bottom:0.4rem;
+}
+.subsec2 p{
+text-align:center;
+color:white;
+}
+.sec-2{
+    margin: 2rem;
+    padding: 2rem;
+    justify-content: space-around;
+    margin-top:0rem;
+    padding-top:1rem;
+}
+
+.card{
+    margin: 0% auto;
+    background-color: black;
+    color:white;
+}
+
+.card a{
+   color: white;
+}
+
+.container p{
+   color:white;
+}
