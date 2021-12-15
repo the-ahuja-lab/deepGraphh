@@ -12,7 +12,7 @@ The source code of the embeddings needed to train the model is available at  htt
 
 ## Prediction Engines:
 <div align="center">
-<img src="Data/Images/SS_1.png"></div>
+<img src="Data/Images/SS_1.PNG"></div>
 ## Additional Features:
 1. deepMOA is a one-stop web service for graph-based methods for cheminformatics
 2. deepMOA is one of the only open-source web servers to date that provides multiple GUI-based options for graph-based QSAR analysis. 
