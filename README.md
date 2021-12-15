@@ -19,6 +19,6 @@ The source code of the embeddings needed to train the model is available at  htt
 2. <I>deepMOA</I> is one of the only open-source web servers to date that provides multiple GUI-based options for graph-based QSAR analysis. 
 3. <I>deepMOA</I> is backup by significant computational resources to enable model generation on larger datasets.
 4. <I>deepMOA</I> allows users to temporarily store their data for up to 1 month.
-5. <I>deepMOA </I>is open source and free to use. Source code is available at our laboratory Github repository.
+5. <I>deepMOA </I>is open source and free to use.
 
 
