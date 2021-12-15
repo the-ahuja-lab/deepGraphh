@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deepMOA</title>
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename= 'stylesheets/start.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename= 'css/bootstrap.min.css') }}">
+    <link rel = "stylesheet" type="text/css" href="{{ url_for('static' , filename = 'stylesheets/results.css') }} ">
+</head>
+<body>
+    <header class="header">
+            <nav class="navbar navbar-style navbar-expand-lg navbar-header">
+                <div class="container">
+                        <a class = "navbar-brand" href="{{ url_for('reroute') }}">
+                            <h4 style="color:white; text-transform: none;">deepMOA</h4>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                    <!-- </div> -->
+                    <div class="collapse navbar-collapse" id="micon">
+                    <ul class="navbar-nav navbar-right nav-pills mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('reroute') }}">Home</a></li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create Model</a>
+                       
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" > -->
+                           
+
+                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item drp-model" href="{{ url_for('start') }}"> Graph Convolution Network</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('graphattnstart') }}">Graph Attentive Network</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('dagstart') }}">Directed Acyclic Graph</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('attnstart') }}">Attentive FP</a>
+                         </div> 
+                        
+                      </li>
+ 
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('result') }}">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('tut') }}">Tutorial</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{{ url_for('dataset') }}">Datasets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                </div> 
+            </nav>
+        </header>
+
+    <div class="fluid-container">
+
+        <div class="model-name">
+            <h3 class="display-4">Datasets</h3>
+        </div>
+        <br>
+    
+        
+        <div class="sect-2">
+            <table class="container table table-striped table-bordered table-hover table-condensed">
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Dataset</th>
+                    <th scope="col">Dataset Description</th>
+                    <th scope="col">DOI</th>
+                    <th scope="col">Download</th>
+                    </tr>
+                </thead>
+                 <tbody>
+        
+        <tr>
+            <td id="jobid" >1.</td>
+            <td>Consensus estrogen receptor alpha agonists</td>
+            <td>In silico prediction of chemical-induced hematotoxicity with machine learning and deep learning methods.</td>
+            <td><a href="">https://doi.org/10.1007/s11030-021-10255-x</a></td>
+            <td><a href="{{ url_for('downDataset',variable = 1) }}" class="btn btn-dark" id="downbtn" download="Dataset.zip">Download </a></td>
+    
+        </tr>
+        <tr>
+            <td id="jobid" >2.</td>
+            <td>Consensus Hematotoxicity</td>
+            <td>In silico prediction of drug-induced rhabdomyolysis with machine-learning models and structural alerts. </td>
+            <td><a href="">https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/10.1002/jat.3808</a></td>
+            <td><a href="{{ url_for('downDataset',variable = "2") }}" class="btn btn-dark" id="downbtn" download="Dataset.zip">Download </a></td>
+    
+        </tr>
+        <tr>
+            <td id="jobid" >3.</td>
+            <td>Drug-Induced Rhabdomyolysis</td>
+            <td>Consensus Modeling for HTS Assays Using In silico Descriptors Calculates the Best Balanced Accuracy in Tox21 Challenge</td>
+            <td><a href="">https://doi.org/10.3389/fenvs.2016.00002</a></td>
+            <td><a href="{{ url_for('downDataset',variable = 3) }}" class="btn btn-dark" id="downbtn" download="Dataset.zip">Download </a></td>
+    
+        </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
+<script>
+    function downloadthis(){
+    var jobid = $(#jobid).val();
+    $.ajax()
+    }
+</script>
+</body>
+</html>

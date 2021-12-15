@@ -1,0 +1,538 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOA</title>
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename= 'stylesheets/start.css') }}">-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename= 'css/bootstrap.min.css') }}">
+    <link rel = "stylesheet" type="text/css" href="{{ url_for('static' , filename = 'stylesheets/tut.css') }} ">
+</head>
+<body style="color:black">
+    <header class="header">
+            <nav class="navbar navbar-style navbar-expand-lg navbar-header">
+                <div class="container">
+                        <a class = "navbar-brand" href="{{ url_for('reroute') }}">
+                            <h3 style="color:white; text-transform: none;">deepMOA</h3>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                    <!-- </div> -->
+                    <div class="collapse navbar-collapse" id="micon">
+                    <ul class="navbar-nav navbar-right nav-pills mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('reroute') }}">Home</a></li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create Model</a>
+
+
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           <a class="dropdown-item drp-model" href="{{ url_for('start') }}"> Graph Convolution Network</a>
+                           <a class="dropdown-item drp-model" href="{{ url_for('graphattnstart') }}">Graph Attentive Network</a>
+                           <a class="dropdown-item drp-model" href="{{ url_for('dagstart') }}">Directed Acyclic Graph</a>
+                           <a class="dropdown-item drp-model" href="{{ url_for('attnstart') }}">Attentive FP</a>
+                          </div>
+                        
+                      </li>
+ 
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('result') }}">Results</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{{ url_for('tut') }}">Tutorial</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('dataset') }}">Datasets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                </div> 
+            </nav>
+            <div class="model-name" id="tut">              
+                <h3 class="display-4">Tutorial</h3>
+            </div>
+        </header>
+
+    <br>
+
+    <center>
+    <div class="container sect-2">
+        
+        <center><h2 class="d-none d-md-block">
+          Input Format
+        </h2></center>
+
+        <table class="mt-5 table text-black">
+            <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">SMILES</th>
+              <th scope="col">Activation Status</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>Methanethiol</td>
+                <td>CS</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Ethanethiol</td>
+                <td>C(C)S</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Benzenethiol</td>
+                <td>C1(=CC=CC=C1)S</td>
+                <td>1</td>
+            </tr>
+          </table>
+                <br><br>
+        <center><h2 class="d-none d-md-block">
+          Parameters
+        </h2></center>
+        <br>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item bl">
+              <a class="nav-link active bl m-nm" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Graph Convolution Network</a>
+            </li>
+            <li class="nav-item bl">
+              <a class="nav-link m-nm" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Graph Attention Network</a>
+            </li>
+            <li class="nav-item bl">
+              <a class="nav-link m-nm" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Directed Acyclic Graph</a>
+            </li>
+            <li class="nav-item bl">
+              <a class="nav-link m-nm" id="contact-tab" data-toggle="tab" href="#attentive" role="tab" aria-controls="attentive" aria-selected="false">Attentive FP</a>
+            </li>
+         </ul>
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane fade show active param-holder" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Parameter</th>
+        <th scope="col">Type</th>
+        <th scope="col">What it means</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>n_tasks</td>
+        <td>Integer</td>
+        <td>Number of tasks</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>graph_conv_layers</td>
+        <td>List of integer</td>
+        <td>Width of channels for GCN layers. graph_conv_layers[i] gives the width of channel for the i-th GCN layer</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>activation</td>
+        <td>String</td>
+        <td>The activation function to apply to the output of each GCN layer</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>residual</td>
+        <td>Boolean</td>
+        <td>Whether to add a residual connection within each GCN layer</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>batchnorm</td>
+        <td>Boolean</td>
+        <td>Whether to apply batch normalization to the output of each GCN layer</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td>dropout</td>
+        <td>Float</td>
+        <td>The dropout probability for the output of each GCN layer</td>
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>dropout</td>
+        <td>Float</td>
+        <td>The dropout probability for the output of each GCN layer</td>
+      </tr>
+      <tr>
+        <th scope="row">8</th>
+        <td>predictor_hidden_feats </td>
+        <td>Integer</td>
+        <td>The size for hidden representations in the output MLP predictor</td>
+      </tr>
+      <tr>
+        <th scope="row">9</th>
+        <td>predictor_dropout</td>
+        <td>Integer</td>
+        <td>The dropout probability in the output MLP predictor</td>
+      </tr>
+      <tr>
+        <th scope="row">10</th>
+        <td>mode</td>
+        <td>String</td>
+        <td>The model type, ‘classification’ or ‘regression’</td>
+      </tr>
+      <tr>
+        <th scope="row">11</th>
+        <td>number_atom_features</td>
+        <td>Integer</td>
+        <td>The length of the initial atom feature vectors</td>
+      </tr>
+      <tr>
+        <th scope="row">12</th>
+        <td>n_classes</td>
+        <td>Integer</td>
+        <td>The number of classes to predict per task (only used when mode is ‘classification’)</td>
+      </tr>
+      <tr>
+        <th scope="row">13</th>
+        <td>self_loop</td>
+        <td>Boolean</td>
+        <td>Whether to add self loops for the nodes, i.e. edges from nodes to themselves. When input graphs have isolated nodes, self loops allow preserving the original feature of them in message passing.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">S.No.</th>
+      <th scope="col">Parameter</th>
+      <th scope="col">Type</th>
+      <th scope="col">What it means</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>n_tasks</td>
+      <td>Integer</td>
+      <td>Number of tasks</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>graph_attention_layers</td>
+      <td>List of integer</td>
+      <td>Width of channels per attention head for GAT layers. graph_attention_layers[i] gives the width of channel for each attention head for the i-th GAT layer. If both graph_attention_layers and agg_modes are specified, they should have equal length</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>n_attention_heads</td>
+      <td>Integer</td>
+      <td>Number of attention heads in each GAT layer
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>residual</td>
+      <td>Boolean</td>
+      <td>Whether to add a residual connection within each GAT layer</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>aggregation_modes</td>
+      <td>List of String</td>
+      <td>The way to aggregate multi-head attention results for each GAT layer, which can be either ‘flatten’ for concatenating all-head results or ‘mean’ for averaging all-head results. agg_modes[i] gives the way to aggregate multi-head attention results for the i-th GAT layer</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>dropout</td>
+      <td>Float</td>
+      <td>The dropout probability for the output of each GAT layer</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>alpha</td>
+      <td>Float</td>
+      <td>A hyperparameter in LeakyReLU, which is the slope for negative values</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>predictor_hidden_feats </td>
+      <td>Integer</td>
+      <td>The size for hidden representations in the output MLP predictor</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>predictor_dropout</td>
+      <td>Integer</td>
+      <td>The dropout probability in the output MLP predictor</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>mode</td>
+      <td>String</td>
+      <td>The model type, ‘classification’ or ‘regression’</td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>number_atom_features</td>
+      <td>Integer</td>
+      <td>The length of the initial atom feature vectors</td>
+    </tr>
+    <tr>
+      <th scope="row">12</th>
+      <td>n_classes</td>
+      <td>Integer</td>
+      <td>The number of classes to predict per task (only used when mode is ‘classification’)</td>
+    </tr>
+    <tr>
+      <th scope="row">13</th>
+      <td>self_loop</td>
+      <td>Boolean</td>
+      <td>Whether to add self loops for the nodes, i.e. edges from nodes to themselves. When input graphs have isolated nodes, self loops allow preserving the original feature of them in message passing.</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"> 
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">S.No.</th>
+      <th scope="col">Parameter</th>
+      <th scope="col">Type</th>
+      <th scope="col">What it means</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>n_tasks</td>
+      <td>Integer</td>
+      <td>Number of tasks</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>n_atom_feat </td>
+      <td>Integer</td>
+      <td>number of features per atom</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>n_graph_feat</td>
+      <td>Integer</td>
+      <td>Number of features for atom in the graph
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>n_outputs</td>
+      <td>Integer</td>
+      <td>Number of features for each molecule</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>layer_sizes</td>
+      <td>List of Integer</td>
+      <td>List of hidden layer size(s) in the propagation step: length of this list represents the number of hidden layers, and each element is the width of corresponding hidden layer</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>dropout</td>
+      <td>Float</td>
+      <td>Dropout probability, applied after each propagation step and gather step</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>layer_sizes_gather</td>
+      <td>List of Integer</td>
+      <td>List of hidden layer size(s) in the gather step</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>n_classes</td>
+      <td>Integer</td>
+      <td>The number of classes to predict (only used in classification mode)
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>uncertainty </td>
+      <td>Boolean</td>
+      <td> if True, include extra outputs and loss terms to enable the uncertainty in outputs to be predicted
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>mode</td>
+      <td>String</td>
+      <td>The model type, ‘classification’ or ‘regression’</td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="tab-pane fade" id="attentive" role="tabpanel" aria-labelledby="contact-tab">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">S.No.</th>
+      <th scope="col">Parameter</th>
+      <th scope="col">Type</th>
+      <th scope="col">What it means</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>n_tasks</td>
+      <td>Integer</td>
+      <td>Number of tasks</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>num_layers</td>
+      <td>Integer</td>
+      <td>Number of graph neural network layers, i.e. number of rounds of message passing</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>num_timesteps</td>
+      <td>Integer</td>
+      <td>Number of time steps for updating graph representations with a GRU
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>graph_feat_size</td>
+      <td>Int</td>
+      <td>Size for graph representations</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>number_atom_features</td>
+      <td>Integer</td>
+      <td> The length of the initial atom feature vectors</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>dropout</td>
+      <td>Float</td>
+      <td>Dropout probability</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>n_classes</td>
+      <td>Integer</td>
+      <td>The number of classes to predict per task (only used when mode is ‘classification’)</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>self_loop</td>
+      <td>Boolean</td>
+      <td>Whether to add self loops for the nodes, i.e. edges from nodes to themselves. When input graphs have isolated nodes, self loops allow preserving the original feature of them in message passing.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+                <br><br>
+        <center><h2 class="d-none d-md-block">
+          Output Format
+        </h2></center>
+
+        <table class="mt-5 table text-black">
+            <thead>
+            <tr>
+              <th scope="col">SMILES</th>
+              <th scope="col">Activation Status</th>
+              <th scope="col">Probability of Class 0</th>
+              <th scope="col">Probability of Class 1</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>CC(CCC=C(C)C)CC=O</td>
+                <td>1</td>
+                <td>0.1934605</td>
+                <td>0.8065395</td>
+            </tr>
+            <tr>
+                <td>C1CCCCCC(=O)CCCC1</td>
+                <td>0</td>
+                <td>0.9994111</td>
+                <td>0.0005889</td>
+            </tr>
+            <tr>
+                <td>CCC(=O)C1=CC=CC=C1</td>
+                <td>1</td>
+                <td>0.4913514</td>
+                <td>0.5086485</td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        <center><h1>
+          FAQs
+        </h1></center>
+
+        <section class="faq-container">
+            <br><br>
+            <div class="faq-one">
+                <!-- faq question -->
+                <h2 class="faq-page">Why user should use deepMOA?
+</h2>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>deepMOA (Machine-Olf-Action), a web server featuring a conglomerate of powerful graph-based neural networks methods, with highly configurable parameters support allowing graphical user interface (GUI) enabled models generation, their tuning, and testing of query molecules.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+                        <br><br>
+            <div class="faq-two">
+                <!-- faq question -->
+                <h2 class="faq-page">Can I run 2 prediction models from different tabs of the same browser?</h2>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>No.
+</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+                        <br><br>
+            <div class="faq-three">
+                <!-- faq question -->
+            <h2 class="faq-page">Can I navigate away from the loading screen?</h2>
+                            <!-- faq answer -->
+                            <div class="faq-body">
+                                <p>We understand that it can be a little time-consuming, considering the high computations. Please try to be patient, and do not close the tabs however you can change the tabs.</p>
+                            </div>
+                        </div>
+
+            <hr class="hr-line">
+                        <br><br>
+            <div class="faq-three">
+                <!-- faq question -->
+            <h2 class="faq-page">What is the prediction based on?
+</h2>
+                            <!-- faq answer -->
+                            <div class="faq-body">
+                                <p>The prediction is based on Graph-based Deep Learning Models.</p>
+                            </div>
+                        </div>
+
+            <hr class="hr-line">
+                        <br><br>
+            <div class="faq-three">
+                <!-- faq question -->
+            <h2 class="faq-page">What is the use of Dataset Tab?</h2>
+                            <!-- faq answer -->
+                            <div class="faq-body">
+                                <p> deepMOA  have provided  exemplary datasets fro user to use</p>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+        </section>
+    </div>
+</center>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <script src="{{ url_for('static', filename= 'js/main.js') }}"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+{% block body %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>deepMOA</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'stylesheets/start.css') }}">
+<!--        <link rel = "stylesheet" type="text/css" href="start.css">-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+                    <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+                    <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body   style="background-color: #000000;">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="content">
+                            <div class="info" style="margin-left:4.3333%;">
+                                <h1 >deepMOA</h1>
+
+                               <!-- <br><h2>Machine-Olf-Action (deep version)</h2>  -->
+                                <br>
+                                
+                                <h4>deepMOA is an open-source web service that features a conglomerate of powerful graph-based neural networks methods, with highly configurable parameters support via the graphical user interface (GUI). It allows models generation, parameter tuning, and testing of the user-supplied query molecules. deepMOA offers four widely accepted methods for graph-based model generation. These include Graph Convolution Network (GCN), Graph Attention Network (GAT), Directed Acyclic Graph (DAG), and Attentive FP.</h4>
+                                
+
+
+
+                            </div>
+                    
+                        
+                        
+                    </div>
+                     <div class="row">
+                    <div class="col-md-10 col-lg-12" style="margin-left:4.3333%;">
+                    <img alt="Qries" class="responsive2" src="{{ url_for('static', filename= 'images/index_gif3.gif') }}" width="500" >
+                    </div>
+                  </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                      <div class="container rmod">
+                          <div class="row">
+                              <div class="col-md-6 col-lg-6 model-cont" >
+<!--                                  <div class="holder" >-->
+                                      <a href="{{ url_for('start') }}" style="text-align:center">
+                                      <center><img alt="Qries" class="responsive" src="{{ url_for('static', filename= 'images/GCN.png') }}"
+         width="200" ></center>
+                                      </a>
+                                      <!-- <div class="" id="rshf">
+                                         <a href="{{ url_for('start') }}"class="text">Graph Convolution Network</a>
+                                      </div> -->
+<!--                                  </div>-->
+                              </div>
+                              <div class="col-md-6 col-lg-6 model-cont">
+<!--                                <div class="holder">-->
+                                    <a href="{{ url_for('attnstart') }}" style="text-align:center">
+                                    <img alt="Qries"  class="responsive" src="{{ url_for('static', filename= 'images/AFP_Image2.png') }}"
+         width="200" >
+                                    </a>
+                                      <!-- <div class="overlay">
+                                         <a href="{{ url_for('attnstart') }}"class="text">Attentive FP</a>
+                                      </div> -->
+<!--                                </div>-->
+                              </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-6 col-lg-6 model-cont" >
+<!--                                <div class="holder">-->
+                                    <a href="{{ url_for('graphattnstart') }}" style="text-align:center">
+                                    <center><img alt="Qries"  class="responsive" src="{{ url_for('static', filename= 'images/GAN_Image.png') }}"
+         width="200"></center>
+                                    </a>
+                                      <!-- <div class="overlay" id="rshf">
+                                         <a href="{{ url_for('graphattnstart') }}"class="text">Graph Attention Network</a>
+                                      </div> -->
+<!--                                </div>-->
+                            </div>
+                            <div class="col-md-6 col-lg-6 model-cont">
+<!--                                <div class="holder">-->
+                                <a href="{{ url_for('dagstart') }}" style="text-align:center">
+                                <img alt="Qries"  class="responsive" src="{{ url_for('static', filename= 'images/DAGImage.png') }}"
+         width="200" >
+
+                                    </a>
+                                     <!--  <div class="overlay">
+                                         <a href="{{ url_for('dagstart') }}"class="text">Directed Acyclic Graph</a>
+                                      </div> -->
+<!--                                </div>-->
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
+{% endblock %}

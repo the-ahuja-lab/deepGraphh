@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename= 'css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'stylesheets/about.css' ) }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>molf</title>
+</head>
+<body style="background-color: black;">
+        <header class="header">
+            <nav class="navbar navbar-style navbar-expand-lg navbar-header">
+                                <div class="container">
+                        <a class = "navbar-brand" href="{{ url_for('reroute') }}">
+                            <h3 style="color:white; text-transform: none;">deepMOA</h3>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                    <!-- </div> -->
+                    <div class="collapse navbar-collapse" id="micon">
+                    <ul class="navbar-nav navbar-right nav-pills mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('reroute') }}">Home</a></li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create Model</a>
+
+
+                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item drp-model" href="{{ url_for('start') }}"> Graph Convolution Network</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('graphattnstart') }}">Graph Attentive Network</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('dagstart') }}">Directed Acyclic Graph</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('attnstart') }}">Attentive FP</a>
+                         </div>
+
+                      </li>
+
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('result') }}">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('tut') }}">Tutorial</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('dataset') }}">Datasets</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{{ url_for('about') }}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+        </header>
+
+        <br><br>
+
+        <div class="container sect-2">
+          <nav class="navbar navbar-dark bg-dark text-white lab-nav">
+            <div class="container-fluid">
+              <a class="navbar-brand lab-name lab-name" href="https://ahuja-lab.in/">
+                <img src="{{ url_for('static' , filename= 'images/blLogo.png') }}" alt="" width="50" height="50" class="d-inline-block align-text-top lab-lg">
+                The Ahuja Lab
+              </a>
+            </div>
+          </nav>
+          <div class="abt-lab">
+             <p class="lb-text">The Ahuja lab is supported by the Ramalingaswami Re-entry Fellowship, a re-entry scheme of the Department of Biotechnology (DBT), Ministry of Science & Technology, Govt. of India, and an Intramural Start-up grant from Indraprastha Institute of Information Technology-Delhi (IIIT-Delhi). The lab has also been awarded funding from Science and Engineering Research Board (SERB) for promoting basic research in Science and Engineering.</p>
+          </div>
+  
+          <br><br>
+  
+          <div class="sect2">
+            <div>
+              <nav class="navbar text-white bg-dark lab-nav">
+                <span class="navbar-brand h1 wt">Developers</span>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="column">
+              <div class="card">
+                <center><img src="{{ url_for('static' , filename= 'images/Rahul.jpeg') }}" alt="Rahul" style="border-radius:50%; align:center; width:40%">
+                </center>
+                    <div class="container">
+                  <h4 style="margin-top:8px;text-align:center; color:white; font-weight:normal">Rahul Gupta</h4>
+                  <p class="title">(M.Tech Student)</p>
+                        <p class="id">rahul20065@iiitd.ac.in</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="column">
+              <div class="card">
+               <center><img src="{{ url_for('static' , filename= 'images/Deepti.jpeg') }}" alt="Deepti" style="border-radius:50%; align:center; width:40%">
+                </center>
+                  <div class="container">
+                  <h4 style="margin-top:8px; text-align:center; color:white; font-weight:normal">Deepti Gupta</h4>
+                  <p class="title">(M.Tech Student)</p>
+                  <p class="id">deepti20085@iiitd.ac.in</p>
+                </div>
+              </div>
+            </div>
+  
+    <div class="column">
+      <div class="card">
+        <center><img src="{{ url_for('static' , filename= 'images/Anubhav.jpeg') }}" alt="Anubhav" style="border-radius:50%; align:center; width:40%"></center>
+        <div class="container">
+          <h4 style="margin-top:8px; text-align:center; color:white; font-weight:normal">Anubhav Ruhela</h4>
+          <p class="title">(M.Tech Student)</p>
+          <p class="id">anubhav20083@iiitd.ac.in</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--        Second Row-->
+  <br><br><br>
+          <div class="row">
+              <div class="col-md-2"></div>
+              <div class="column">
+              <div class="card">
+                <center><img src="{{ url_for('static' , filename= 'images/Vishakha.jpeg') }}" alt="Vishakha" style="border-radius:50%; align:center; width:40%">
+                </center>
+                    <div class="container">
+                  <h4 style="margin-top:8px;text-align:center; color:white; font-weight:normal">Vishakha Gautam</h4>
+                  <p class="title">(Ph.D Student)</p>
+                  <p class="id">vishakhag@iiitd.ac.in</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="column">
+              <div class="card">
+               <center><img src="{{ url_for('static' , filename= 'images/Chandan.jpeg') }}" alt="Chandan" style="border-radius:50%; align:center; width:40%">
+                </center>
+                  <div class="container">
+                  <h4 style="margin-top:8px; text-align:center; color:white; font-weight:normal">Chandan Saini</h4>
+                      <p class="title">(M.Tech Student)</p>
+                      <p class="id">chandan20337@iiitd.ac.in</p>
+                      </div>
+              </div>
+            </div>
+          </div>
+  </div>
+          </div>
+          <h3 style="text-align:center; color:white; margin:40px; font-size:24px; font-weight:bolder">For Further Queries : <a href="{{ url_for('contact') }}" style="text-align:center; color:white; margin:40px; font-size:24px; font-weight:bold"> Contact </a></h3>
+           
+        </div>
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
+
+    
+</body>
+</html>

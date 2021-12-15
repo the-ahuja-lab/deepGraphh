@@ -1,0 +1,448 @@
+{% extends "index.html" %}
+{% block body %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>deepMOA</title>
+         <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'stylesheets/index.css') }}">
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+          var jobid = {{ jobid|tojson }};
+        console.log(jobid)
+
+
+       var  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        var intervalID = setInterval(update_values,1000);
+
+        function update_values() {
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+            $.getJSON($SCRIPT_ROOT+"/_stuffAttentive/"+ jobid,
+                function(data) {
+
+                   var value = data.result;
+                   console.log(value)
+                   if(value>=1)
+                        document.getElementById("stp1").style.backgroundColor="#00FF00";
+                   if(value>=2)
+                        document.getElementById("stp2").style.backgroundColor="#00FF00";
+                   if(value>=3)
+                        document.getElementById("stp3").style.backgroundColor="#00FF00";
+                   if(value>=4)
+                        document.getElementById("stp4").style.backgroundColor="#00FF00";
+                   if(value>=5)
+                        document.getElementById("stp5").style.backgroundColor="#00FF00";
+                   if(value>=6)
+                        document.getElementById("stp6").style.backgroundColor="#00FF00";
+                   if(value>=7)
+                        document.getElementById("stp7").style.backgroundColor="#00FF00";
+                   if(value>=8)
+                        document.getElementById("stp8").style.backgroundColor="#00FF00";
+                   if(value>=9)
+                        document.getElementById("stp9").style.backgroundColor="#00FF00";
+                   // if(value>=10)
+                   //      document.getElementById("stp10").style.backgroundColor="#b0003a";
+
+
+                    console.log(data)
+                });
+        };
+
+
+
+
+    </script>
+    </head>
+    <body >
+
+        <header class="header">
+            <nav class="navbar navbar-style navbar-expand-lg navbar-header">
+                <div class="container">
+                        <a class = "navbar-brand" href="{{ url_for('reroute') }}">
+                            <h3 style="color:white; text-transform: none;">deepMOA</h3>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                    <!-- </div> -->
+                    <div class="collapse navbar-collapse" id="micon">
+                    <ul class="navbar-nav navbar-right mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{{ url_for('reroute') }}">Home</a></li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create Model</a>
+                       
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" > -->
+                           
+
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item drp-model" href="{{ url_for('start') }}"> Graph Convolution Network </a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('attnstart') }}">Attentive FP</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('graphattnstart') }}">Graph Attentive Network</a>
+                          <a class="dropdown-item drp-model" href="{{ url_for('dagstart') }}">Directed Acyclic Graph</a>
+                          
+                         </div>  
+                        
+                      </li>
+ 
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('result') }}">Results</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('tut') }}">Tutorial</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('dataset') }}">Datasets</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                </div> 
+            </nav>
+            <div class="model-name">              
+                <h2>Attentive FP Model</h2>
+                </div>
+        </header>
+            <div class="sect_2">
+                <div class="row">
+                    <div  onload="update_values();" class="col-md-4 cont">
+                        <div class="prog">
+                            <div class="list-wrapper">
+            
+                                <div class="red-line"></div>
+                            
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp1">1</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Loading Input</div>
+                                            </div>
+                                        </div>
+                                
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp2">2</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Data Preprocessing</div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp3">3</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Splitting Data</div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp4">4</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Model Training</div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp5">5</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Prediction on Train Data</div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp6">6</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Prediction on Test Data</div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp7">7</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Confusion Matrix</div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp8">8</div>
+                                            <div class="list-item">
+                                                <div class="list-title">ROC Curve   </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp9">9</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Classification Report</div>
+                                            </div>
+                                        </div>
+            
+                                        <!-- <div class="list-item-wrapper">
+                                            <div class="list-bullet" id="stp10">10</div>
+                                            <div class="list-item">
+                                                <div class="list-title">Send Mail</div>
+                                            </div>
+                                            <div class="white-line"></div>
+                                        </div> -->
+                            </div>
+            
+                        </div>
+
+                        <script>
+            document.getElementById("stp1").innerHTML;
+        </script>
+                    </div>
+                    <div class="col-md-8">
+                            <form onclick="resetForm();return false;" method="post" enctype=multipart/form-data >
+                            <div class="row para1 prs">
+                                <div class="col-md-9 form-group">
+                                    <label for="csv" class="control-label col-xs-2 lbwrite"><b>Input Data</b></label>
+                                    <div class="col-xs-6">
+                                    <input type="file" class="form-control" name="csvfl" id="csv" accept=".csv" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+
+                                   <div class="col-xs-3">
+                                     <!-- <button type="submit" class="btn btn-primary" id="downbtn">Download Sample</button> -->
+                                     <br><br>
+                                     <a href="{{ url_for('sample') }}" class="btn btn-dark" id="downbtn" download="TrainSample.csv">Sample File</a>
+                                     <!-- <button type="button" class="btn btn-dark" id="subbtn">Upload</button> -->
+                                   </div>
+                                </div>
+                            </div>
+
+                            <div class="row para1 prs">
+                                <div class="col-md-9 form-group">
+                                    <label for="test_csv" class="control-label col-xs-2 lbwrite"><b>Query Data</b></label>
+                                    <div class="col-xs-6">
+                                    <input type="file" class="form-control" name="test_csv" id="test_csv" accept=".csv" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group test_file_btn">
+
+                                   <div class="col-xs-3">
+
+                                 
+                                     <a href="{{ url_for('sampleQuery') }}" class="btn btn-dark" id="downbtn" download="QuerySample.csv">Sample File</a>
+                                     <!-- <button type="button" class="btn btn-dark" id="test_btn">Upload</button> -->
+                                   </div>
+                                </div>
+                            </div>
+
+                            <div class="para2 prs">
+
+                            <label class="control-label col-xs-2 lbwrite"><b>Parameters</b></label>
+                            <!-- </div> -->
+                            <div class="para5 prs">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label class="form-label lbwrite">Mode :</label>
+                                    </div>
+                                    <div class="col-md-6 option-align">
+                                         <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mode" id="flexRadioDefault1" checked>
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                              Classification
+                                            </label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="mode" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              Regression
+                                            </label>
+                                          </div>
+                                    </div>
+<!--                                    <div class="col-md-4">-->
+<!--                                        <div class="dropdown">-->
+<!--                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                              Activation-->
+<!--                                            </button>-->
+<!--                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+<!--                                              <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--                                              <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--                                              <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--                                            </ul>-->
+<!--                                          </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    </ol>
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active bgslide">
+                                    <!-- <img class="d-block w-100" src="" alt="First slide"> -->
+                                    <!-- <div class="bl">HII 1</div> -->
+                                    <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>This field mark the number of tasks for model</p>
+                                      </div>
+                                    <div class="slidecontainer form-group">
+                                        <label for="myRange">n_Tasks</label>
+                                        <input type="range" name="ntask" min="1" max="100" value="2" class="slider" id="myRange">
+                                        <p>Value: <span id="demo"></span></p>
+                                    </div>
+                                </div>
+
+                                  <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="" alt="Second slide"> -->
+                                    <!-- <div class="bl">hii2 </div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="myRange1">n_classes</label>
+                                        <input type="range" name="nclass" min="1" max="100" value="2" class="slider" id="myRange1">
+                                        <p>Value: <span id="demo1"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>Number of classes in classification</p>
+                                      </div>
+                                </div>
+                                  <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
+                                    <!-- <div class="bl">hii3</div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="myRange2">Number of atom features</label>
+                                        <input type="range" name="natom" min="1" max="100" step="1" value="30" class="slider" id="myRange2" >
+                                        <p>Value: <span id="demo2"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>The length of the initial atom feature vectors.</p>
+                                      </div>
+                                </div>
+                                   <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="..." alt="Third slide"> -->
+                                    <!-- <div class="bl">hii3</div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="bond_ft">Number of bond features</label>
+                                        <input type="range" name="bond_ft" min="1" max="100" step="1" value="11" class="slider" id="bond_ft" >
+                                        <p>Value: <span id="bondft"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>The length of the initial atom feature vectors.</p>
+                                      </div>
+                                </div>
+                              <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="" alt="Second slide"> -->
+                                    <!-- <div class="bl">hii2 </div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="myRange3">droupout</label>
+                                        <input type="range" name="dropo" min="0" max="1" value="0" step="0.1" class="slider" id="myRange3">
+                                        <p>Value: <span id="demo3"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>The dropout probability for the output of each GCN layer</p>
+                                      </div>
+                                </div>
+                                <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="" alt="Second slide"> -->
+                                    <!-- <div class="bl">hii2 </div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="myRange4">num_layers</label>
+                                        <input type="range" name="pred_hd_feat" min="1" max="1024" value="2" step="2" class="slider" id="myRange4">
+                                        <p>Value: <span id="demo4"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>The size for hidden representations in the output MLP predictor.</p>
+                                      </div>
+                                </div>
+
+                                 <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="" alt="Second slide"> -->
+                                    <!-- <div class="bl">hii2 </div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="num_ts">num_timesteps</label>
+                                        <input type="range" name="num_ts" min="0" max="100" value="2" step="1" class="slider" id="num_ts">
+                                        <p>Value: <span id="demo5"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>The dropout probability for the output MLP predictor.</p>
+                                      </div>
+                                </div>
+                                <div class="carousel-item bgslide">
+                                    <!-- <img class="d-block w-100" src="" alt="Second slide"> -->
+                                    <!-- <div class="bl">hii2 </div>   -->
+                                    <div class="slidecontainer form-group">
+                                        <label for="graph_ft">graph_features</label>
+                                        <input type="range" name="graph_ft" min="1" max="1240" value="200" step="1" class="slider" id="graph_ft">
+                                        <p>Value: <span id="demo6"></span></p>
+                                      </div>
+                                      <div class="carousel-caption d-none d-md-block sptopslide">
+                                        <!-- <h5>Parameter one</h5> -->
+                                        <p>The dropout probability for the output MLP predictor.</p>
+                                      </div>
+                                </div>
+
+                                </div>
+                            <!-- <div class="slidecontainer form-group">
+                                <label for="exampleInputEmail1">Parameter 1</label>
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                <p>Value: <span id="demo"></span></p>
+                              </div> -->
+                              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <!-- <span class="sr-only">Previous</span> -->
+                              </a>
+                              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <!-- <span class="sr-only">Next</span> -->
+                              </a>
+                        </div>
+
+                            </div>
+
+                            <div class="row para3 prs" id="mlef">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" name="self_loop" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                            <label class="form-check-label" for="flexSwitchCheckChecked" data-toggle="tooltip" data-placement="top" title="Whether to add self loops for the nodes">Self loop</label>
+                                         </div>
+                                         <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                            Tooltip on top
+                                          </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="para5 prs">
+                              <h6><b>Note</b>: Please select K-Cross Validation once the final Model Parameters are fixed.</h6>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label class="form-label lbwrite">Cross Validation :</label>
+                                    </div>
+                                    <div class="col-md-6 option-align">
+                                         <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="CrossValidation" id="flexRadioDefault1" >
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                              5 - Cross Validation
+                                            </label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="CrossValidation" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                              10 - Cross Validation
+                                            </label>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row btns">
+                                <button type="submit" id="Ok" class="btn btn-dark col-md-3 btsp">Submit</button>
+                                <button type="reset"  id="reset" class="btn btn-dark col-md-3 btsp">Reset</button>
+                                <!-- <button type="s" class="btn btn-primary">Submit</button> -->
+                            </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename= 'js/attn.js') }}"></script>
+
+<!--        <script src="assets/js/main.js"></script>-->
+    </body>
+</html>
+{% endblock %}
