@@ -21,9 +21,9 @@ The source code of the embeddings needed to train the model is available at  htt
 4. <I>deepMOA</I> allows users to temporarily store their data for up to 1 month.
 5. <I>deepMOA </I>is open source and free to use.
 
-## How to run pre-trained models
+## How to run pre-trained <I>deepMOA</I> Models
 There are two ways users can use saved models and get the predictions on query data
 1. Users can use <b>GetPrediction_From_Checkpoint_deepMOA.ipynb</b>  in the Get prediction folder.
-2. Users can use the link provided in the <b>tutorial section</b> of the deepMOA web server and it will be directed to google colab.<br>
+2. Users can use the link provided in the <b>tutorial section</b> of the <I>deepMOA</I> web server and it will be directed to google colab.<br>
 <b>All the sections in the python Notebook are well commented so that the user has easy accession.</b>
 
